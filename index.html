@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>The Shared Canvas</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- LANDING PAGE -->
+
+    <section id="landingPage" class="page active">
+
+        <div class="landing-content">
+
+            <h1>THE SHARED CANVAS</h1>
+
+            <p>
+                A virtual space to connect through art.
+            </p>
+
+           
+<div class="landing-buttons">
+
+    <button onclick="showCreateGallery()">
+        CREATE GALLERY
+    </button>
+
+    <button onclick="showJoinGallery()">
+        JOIN GALLERY
+    </button>
+
+    <button onclick="showRoomSelection()">
+        EXPLORE THEMES
+    </button>
+
+</div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- CREATE GALLERY PAGE -->
+
+    <section id="createPage" class="page">
+
+        <div class="card">
+
+            <h2>Create Your Gallery</h2>
+
+            <p>
+                Give your shared space a name.
+            </p>
+
+            <input
+                type="text"
+                id="galleryName"
+                placeholder="Gallery name"
+            >
+
+            <button onclick="createGallery()">
+                CREATE GALLERY
+            </button>
+
+            <button
+                class="back-button"
+                onclick="goHome()">
+                BACK
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOIN GALLERY PAGE -->
+
+    <section id="joinPage" class="page">
+
+        <div class="card">
+
+            <h2>Join a Gallery</h2>
+
+            <p>
+                Enter the room code shared with you.
+            </p>
+
+            <input
+                type="text"
+                id="roomCode"
+                placeholder="Room code"
+            >
+
+            <button onclick="joinGallery()">
+                JOIN GALLERY
+            </button>
+
+            <button
+                class="back-button"
+                onclick="goHome()">
+                BACK
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- GALLERY THEME SELECTION PAGE -->
+
+    <section id="roomSelectionPage" class="page">
+
+        <div class="room-selection-content">
+
+            <h1>CHOOSE YOUR GALLERY</h1>
+
+            <p>Explore art from different worlds and eras.</p>
+
+            <div class="room-grid">
+
+                <div class="room-card">
+                    <h2>Renaissance Masters</h2>
+                    <p>Timeless masterpieces and classical beauty.</p>
+                    <button onclick="selectThemeRoom('Renaissance')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+                <div class="room-card">
+                    <h2>Impressionist Dreams</h2>
+                    <p>Light, colour and beautiful moments.</p>
+                    <button onclick="selectThemeRoom('Impressionism')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+                <div class="room-card">
+                    <h2>Surreal Worlds</h2>
+                    <p>Dreams, imagination and the unexpected.</p>
+                    <button onclick="selectThemeRoom('Surrealism')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+                <div class="room-card">
+                    <h2>Expressionist Visions</h2>
+                    <p>Bold emotions and expressive art.</p>
+                    <button onclick="selectThemeRoom('Expressionism')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+                <div class="room-card">
+                    <h2>Japanese Art</h2>
+                    <p>Traditional prints and striking landscapes.</p>
+                    <button onclick="selectThemeRoom('Japanese Art')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+                <div class="room-card">
+                    <h2>Modern Art</h2>
+                    <p>Fresh ideas and unconventional styles.</p>
+                    <button onclick="selectThemeRoom('Modern Art')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+                <div class="room-card">
+                    <h2>Romanticism</h2>
+                    <p>Powerful landscapes and dramatic scenes.</p>
+                    <button onclick="selectThemeRoom('Romanticism')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+                <div class="room-card">
+                    <h2>Baroque Gallery</h2>
+                    <p>Rich details, drama and grandeur.</p>
+                    <button onclick="selectThemeRoom('Baroque')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+                <div class="room-card">
+                    <h2>Pop Art Gallery</h2>
+                    <p>Colourful art inspired by popular culture.</p>
+                    <button onclick="selectThemeRoom('Pop Art')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+                <div class="room-card">
+                    <h2>Famous Portraits</h2>
+                    <p>Discover faces captured through art.</p>
+                    <button onclick="selectThemeRoom('Portraits')">
+                        EXPLORE GALLERY
+                    </button>
+                </div>
+
+            </div>
+
+            <button class="back-button" onclick="goHome()">
+                BACK HOME
+            </button>
+
+        </div>
+
+    </section>
+
+```html
+<!-- ROOM CREATED PAGE -->
+<section id="roomCreatedPage" class="page">
+    <div class="card">
+        <h1>YOUR GALLERY IS READY!</h1>
+        <p>Share this room code with your friends so they can join you.</p>
+
+        <div class="room-code-box">
+            <p>YOUR ROOM CODE</p>
+            <h2 id="createdRoomCode">SC7K92</h2>
+        </div>
+
+        <button onclick="copyRoomCode()">COPY ROOM CODE</button>
+        <button onclick="showAvatarPage()">CHOOSE AVATAR</button>
+        <button class="back-button" onclick="goHome()">BACK HOME</button>
+    </div>
+</section>
+```
+    <!-- AVATAR PAGE -->
+
+    <section id="avatarPage" class="page">
+
+        <div class="card avatar-card">
+
+            <h2>Choose Your Avatar</h2>
+
+            <div class="avatars">
+
+                <div
+                    class="avatar-option"
+                    id="femaleAvatar"
+                    onclick="selectAvatar('female')">
+
+                    👩
+
+                    <span>Female</span>
+
+                </div>
+
+
+                <div
+                    class="avatar-option"
+                    id="maleAvatar"
+                    onclick="selectAvatar('male')">
+
+                    🧑
+
+                    <span>Male</span>
+
+                </div>
+
+            </div>
+
+            <button onclick="enterGallery()">
+                ENTER GALLERY
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY PAGE -->
+
+    <section id="galleryPage" class="page">
+
+        <div class="gallery-header">
+
+            <div>
+
+                <h2>THE SHARED CANVAS</h2>
+
+                <span id="roomDisplay"></span>
+
+            </div>
+
+            <div class="controls">
+
+                WASD / Arrow Keys to Move
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-container">
+
+            <canvas
+                id="galleryCanvas"
+                width="1000"
+                height="600">
+            </canvas>
+
+
+            <!-- CHAT -->
+
+            <div class="chat-box">
+
+                <div class="chat-header">
+                    💬 Shared Chat
+                </div>
+
+                <div
+                    class="chat-messages"
+                    id="chatMessages">
+
+                    <div class="message">
+
+                        <strong>Friend:</strong>
+                        Welcome to the gallery!
+
+                    </div>
+
+                </div>
+
+
+                <div class="chat-input">
+
+                    <input
+                        type="text"
+                        id="chatInput"
+                        placeholder="Type a message..."
+                        onkeydown="handleChatKey(event)"
+                    >
+
+                    <button onclick="sendMessage()">
+                        SEND
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ARTWORK POPUP -->
+
+    <div
+        id="artworkModal"
+        class="modal">
+
+        <div class="modal-content">
+
+            <button
+                class="close-button"
+                onclick="closeArtwork()">
+
+                ×
+
+            </button>
+
+
+            <div
+                id="artworkImage"
+                class="artwork-placeholder">
+            </div>
+
+
+            <h2 id="artworkTitle"></h2>
+
+
+            <p>
+
+                <strong>Artist:</strong>
+
+                <span id="artworkArtist"></span>
+
+            </p>
+
+
+            <p>
+
+                <strong>Year:</strong>
+
+                <span id="artworkYear"></span>
+
+            </p>
+
+
+            <p>
+
+                <strong>Medium:</strong>
+
+                <span id="artworkMedium"></span>
+
+            </p>
+
+
+            <p id="artworkDescription"></p>
+
+
+            <button onclick="closeArtwork()">
+                CLOSE
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
